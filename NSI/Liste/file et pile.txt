@@ -1,0 +1,111 @@
+Exercice 2 :
+
+1. La structure de données la plus appropriée pour mettre en oeuvre le mode FIFO est la d), les files
+
+2.
+def ajouter(lst,proc):
+	lst.append(proc)
+
+3.
+
+|  	|
+|  	|
+|  	|
+|  PS7	|
+| _ _ _ |
+   P1
+
+|  	|
+|  PS4	|
+|  PS5	|
+|  PS6	|
+| _ _ _ |
+   P2
+
+4.
+
+f[0] = p1
+f[1] = p2
+
+a)
+def est_vide(f):
+	return pile_vide(f.p1) and pile_vide(f.p2)
+		
+b)
+def enfiler(f,elt):
+	empiler(f.p1,elt)
+
+c)
+def defiler(f):
+	if not pile_vide(f.p2):
+		elt = depiler(f.p2)
+		return elt
+	elif not pile_vide(f.p1):
+		elt = depiler(f.p1)
+		return elt
+	else:
+		return("la file est vide")
+		
+
+Exercice 3 :
+
+1.
+
+a) 
+
+pile1 = Pile()
+pile1.empiler(7)
+pile1.empiler(5)
+pile1.empiler(2)
+pile.afficher()
+
+b)
+
+Etapes : On dépile le sommet (2) et on affecte cette valeur à la variable element1
+	 On empile 5 au sommet de la pile (7, 5, 5)
+	 On empile element1, donc 2 (7, 5, 5, 2)
+
+Affichage produit : 7, 5, 5, 2
+
+2.
+
+Fonctionnement de la fonction mystère :
+Nouvelle instance de la classe Pile : pile2
+On récupère le nombre d'élément de l'instance de la classe Pile mis en argument 
+
+Boucle de range (nombre_éléments)
+On dépile la pile en argument et on empile la valeur qui vient d'être dépilé dans pile2
+Si la valeur qu'on vient d'empiler dans pile2 est égal à l'élément en argument, on return pile2
+
+a) 
+
+Cas 1 : 3, 2
+Cas 2 : 3, 2, 5, 7
+Cas 3 : 3
+Cas 4 : pile vide
+
+b) 
+
+La fonction mystère permet d'obtenir une nouvelle pile construite à l'aide d'une pile. L'ordre des valeurs
+est inversé et s'arrête une fois que la valeur mise en argument est empilée dans la nouvelle pile. On crée
+en fait une nouvelle pile basée sur une ancienne pile qui aura pour sommet la valeur mise en argument.
+
+3. 
+
+def etendre(pile1, pile2):
+	for i in range(pile2.nb_elements()):
+		pile1.empiler(pile2.depiler())
+
+4.
+
+def supprime_toutes_occurence(pile, element):
+	pile_temp = Pile()
+	for i in range(pile.nb_element()):
+		elt = pile.depiler()
+		if elt != element:
+			pile_temp.empiler(elt)
+		else:
+			pass
+
+	for i in range(pile_temps.nb_element()):
+		pile.empiler(pile_temps.depiler())
